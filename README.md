@@ -1,22 +1,58 @@
-# neurofive-ml-track
+# 🚢 Titanic Survival Prediction App
 
-This repository contains tasks and projects completed during the Neurofive Solutions Machine Learning Track, covering data preprocessing, exploratory data analysis, regression modeling, and model evaluation techniques.
+An end-to-end Machine Learning web application built with Python and Streamlit that predicts passenger survival on the Titanic based on demographic and voyage details.
+
+🔗 **Live Demo:** [Titanic Survival Predictor](https://neurofive-ml-track-dlwjdkvwwira8zz6xblenk.streamlit.app)
 
 ---
 
-## 📌 Progress Summary
+## 📌 Project Overview
+This repository contains the complete Machine Learning workflow developed across the 5-week fellowship track. The project encompasses exploratory data analysis, feature engineering, model training and evaluation, Scikit-Learn pipeline creation, model serialization, and cloud deployment.
 
-### 🔹 Week 1: Exploratory Data Analysis (EDA)
-- Loaded and cleaned the Titanic dataset.
-- Handled missing values (imputed Age, Embarked, and Fare).
-- Conducted exploratory data analysis and visualized feature distributions.
+---
 
-### 🔹 Week 2: Supervised Learning (Classification & Regression)
-- Built a **Logistic Regression** baseline model to predict passenger survival on Titanic.
-- Built a **Linear Regression** model using the California Housing dataset to predict house prices.
-- Visualized predictions against actual values using scatter plots and regression lines.
+## 📅 Weekly Progression (Week 1 – Week 5)
 
-### 🔹 Week 3: Model Evaluation & Tuning
-- Evaluated classification models beyond accuracy using Precision, Recall, and F1-Score via `classification_report`.
-- Systematically tuned hyperparameters (`C` and `solver`) using `GridSearchCV`.
-- Analyzed performance trade-offs for imbalanced datasets and generated before/after comparison tables.
+### Week 1: Exploratory Data Analysis (EDA)
+* Inspected dataset structure, data types, and missing value distributions.
+* Handled missing data (`Age` median imputation, `Embarked` mode imputation, dropped high-null `Cabin` column).
+* Conducted univariate and bivariate analysis to examine relationships between survival status and features like `Sex`, `Pclass`, and `Fare`.
+
+### Week 2: Feature Engineering & Preprocessing
+* Engineered new features: `FamilySize` (`SibSp` + `Parch` + 1) and binary indicator `IsAlone`.
+* Applied One-Hot Encoding to categorical variables (`Sex`, `Embarked`).
+* Scaled numerical values using `StandardScaler` to normalize distributions.
+
+### Week 3: Model Training & Evaluation
+* Trained multiple classification models: Logistic Regression, Decision Trees, Random Forest, and XGBoost.
+* Evaluated models using Accuracy, Precision, Recall, F1-Score, and ROC-AUC metrics.
+* Selected Random Forest as the optimal baseline model based on overall accuracy and generalization performance.
+
+### Week 4: Scikit-Learn Pipelines & Model Serialization
+* Constructed a unified `ColumnTransformer` and `Pipeline` to prevent data leakage between training and test sets.
+* Optimized model hyper-parameters using `GridSearchCV`.
+* Serialized the complete fitted pipeline to `titanic_pipeline_model.pkl` using `joblib`.
+
+### Week 5: Web Application & Cloud Deployment
+* Developed an interactive user interface using `Streamlit` (`app.py`) for real-time model inference.
+* Maintained dependency configuration in `requirements.txt` to guarantee environment reproducibility.
+* Deployed the web application on **Streamlit Community Cloud**.
+
+---
+
+## 🛠️ Tech Stack
+* **Language:** Python
+* **Data Manipulation:** Pandas, NumPy
+* **Machine Learning:** Scikit-Learn, Joblib
+* **Web Framework:** Streamlit
+* **Deployment:** Streamlit Community Cloud
+
+---
+
+## 📂 Repository Structure
+
+```text
+├── app.py                         # Streamlit UI & inference script
+├── titanic_pipeline_model.pkl      # Pre-trained Scikit-Learn pipeline
+├── requirements.txt               # Project dependencies
+└── README.md                      # Documentation
